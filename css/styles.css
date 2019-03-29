@@ -2,14 +2,24 @@ h4 {
   display: none;
   font-weight: bold;
   text-align: center;
-  font-size: 50px
+  font-size: 50px;
+  padding: 0 0 0 0;
 }
 
 .form-group {
-  width: 50%
+  width: 50%;
 }
 
 body {
   background-color: skyblue;
-  padding: 100px 0% 0% 35%;
+}
+
+#calculator {
+    padding: 0% 0% 0% 35%;
+    align-items: center;
+}
+
+h1 {
+     padding-top: 100px;
+     text-align: center;
 }
