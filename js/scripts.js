@@ -6,13 +6,19 @@ $(document).ready(function(){
     console.log(typeof firstInput);
     console.log(secondInput);
     console.log(thirdInput);
+    $("body").find("h4").hide();
 
-    if(firstInput === secondInput && secondInput === thirdInput ) {
-      console.log("hi");
-      $("#Equal").show();
+    if ( firstInput <= 0 || secondInput <= 0 || thirdInput <= 0 ) {
+      $("#notTri").show();
+    } else if ( firstInput === secondInput && secondInput === thirdInput ) {
+      $("#equal").show();
+    } else if ( firstInput === secondInput || secondInput === thirdInput ) {
+      $("#isos").show();
+    } else if ( firstInput !== secondInput && secondInput !== thirdInput ) {
+      $("#scal").show();
+    } else {
+      $("#notTri").show();
     }
-
-
     event.preventDefault();
   });
 })
