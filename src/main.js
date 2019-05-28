@@ -1,27 +1,19 @@
-// import { triangle } from './triangle';
 import './styles.css';
-import $ from 'jquery';
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Triangle } from './triangle.js';
 
-$(document).ready(function(){
-  $("form#calculator").submit(function(event){
-    var firstInput = parseInt($("#input1").val());
-    var secondInput = parseInt($("#input2").val());
-    var thirdInput = parseInt($("#input3").val());
-    $("body").find("h4").hide();
 
-    if ( firstInput <= 0 || secondInput <= 0 || thirdInput <= 0 ) {
-      $("#notTri").show();
-    } else if ( firstInput === secondInput && secondInput === thirdInput ) {
-      $("#equal").show();
-    } else if ( firstInput === secondInput || secondInput === thirdInput ) {
-      $("#isos").show();
-    } else if ( firstInput !== secondInput && secondInput !== thirdInput ) {
-      $("#scal").show();
-    } else {
-      $("#notTri").show();
-    }
+$(document).ready(function() {
+  $("form#triangle").submit(function(event) {
+    var side1 = parseInt($("input#side1").val());
+    var side2 = parseInt($("input#side2").val());
+    var side3 = parseInt($("input#side3").val());
+    var triangle = new Triangle(side1, side2, side3);
+    var result = triangle.checkType();
+
+    $(".triangle_type").text(result);
+
+    $("#result").show();
+
     event.preventDefault();
   });
 });
